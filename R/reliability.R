@@ -1,0 +1,89 @@
+#' seminr rhoA Function
+#'
+#' The \code{rhoA} function calculates the rhoA reliability indices for each construct. For
+#' formative constructs, the index is set to 1.
+#'
+#' @param seminr_model A \code{seminr_model} containing the estimated seminr model.
+#'
+#' @usage
+#' rhoA(seminr_model)
+#'
+#' @seealso \code{\link{relationships}} \code{\link{constructs}} \code{\link{paths}} \code{\link{interactions}}
+#'          \code{\link{bootstrap_model}}
+#'
+#' @references Dijkstra, T. K., & Henseler, J. (2015). Consistent Partial Least Squares Path Modeling, 39(X).
+#'
+#' @examples
+#' #seminr syntax for creating measurement model
+#' mobi_mm <- constructs(
+#'              reflective("Image",        multi_items("IMAG", 1:5)),
+#'              reflective("Expectation",  multi_items("CUEX", 1:3)),
+#'              reflective("Quality",      multi_items("PERQ", 1:7)),
+#'              reflective("Value",        multi_items("PERV", 1:2)),
+#'              reflective("Satisfaction", multi_items("CUSA", 1:3)),
+#'              reflective("Complaints",   single_item("CUSCO")),
+#'              reflective("Loyalty",      multi_items("CUSL", 1:3))
+#'            )
+#' #seminr syntax for creating structural model
+#' mobi_sm <- relationships(
+#'   paths(from = "Image",        to = c("Expectation", "Satisfaction", "Loyalty")),
+#'   paths(from = "Expectation",  to = c("Quality", "Value", "Satisfaction")),
+#'   paths(from = "Quality",      to = c("Value", "Satisfaction")),
+#'   paths(from = "Value",        to = c("Satisfaction")),
+#'   paths(from = "Satisfaction", to = c("Complaints", "Loyalty")),
+#'   paths(from = "Complaints",   to = "Loyalty")
+#' )
+#'
+#' mobi_pls <- estimate_pls(data = mobi,
+#'                            measurement_model = mobi_mm,
+#'                            structural_model = mobi_sm)
+#'
+#' rhoA(mobi_pls)
+#' @export
+rhoA <- function(seminr_model) {
+  #Function to implement rhoA as per Dijkstra, T. K., & Henseler, J. (2015). Consistent Partial Least Squares Path Modeling, 39(X).
+
+  # get latent variable scores and weights for each latent
+  latentscores <- seminr_model$fscores
+  weights <- seminr_model$outer_weights
+  # get the mmMatrix and smMatrix
+  mmMatrix <- seminr_model$mmMatrix
+  smMatrix <- seminr_model$smMatrix
+  obsData <- seminr_model$data
+  # Create rhoA holder matrix
+  rho <- matrix(,nrow = ncol(latentscores),ncol = 1,dimnames = list(colnames(latentscores),c("rhoA")))
+
+  for (i in rownames(rho))  {
+    #If the measurement model is Formative assign rhoA = 1
+    if(mmMatrix[mmMatrix[,"latent"]==i,"type"][1]=="B"){
+      rho[i,1] <- 1
+    }
+    if(mmMatrix[mmMatrix[,"latent"]==i,"type"][1]=="A"){
+      rho[i,1] <- 1
+    }
+    #If the measurement model is Reflective Calculate RhoA
+    if(mmMatrix[mmMatrix[,"latent"]==i,"type"][1]=="C"){
+      #if the latent is a single item rhoA = 1
+      if(nrow(mmMatrix_per_latent(i,mmMatrix)) == 1) {
+        rho[i,1] <- 1
+      } else {
+        # get the weights for the latent
+        w <- as.matrix(weights[mmMatrix[mmMatrix[,"latent"]==i,"measurement"],i])
+
+        # Get empirical covariance matrix of lv indicators (S)
+        indicators <- scale(obsData[,mmMatrix[mmMatrix[,"latent"]==i,"measurement"]],TRUE,TRUE)
+        S <- stats::cov(indicators,indicators)
+        diag(S) <- 0
+
+        # Get AA matrix without diagonal
+        AAnondiag <- w %*% t(w)
+        diag(AAnondiag) <- 0
+
+        # Calculate rhoA
+        rho[i,1] <- (t(w) %*% w)^2 * ((t(w) %*% (S) %*% w)/(t(w) %*% AAnondiag %*% w))
+      }
+    }
+  }
+  return(rho)
+}
+# End rhoA function

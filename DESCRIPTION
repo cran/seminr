@@ -1,0 +1,29 @@
+Package: seminr
+Type: Package
+Title: Domain-Specific Language for Building PLS Structural Equation
+        Models
+Version: 0.3.1
+Date: 2018-01-03
+Authors@R: c(person("Soumya", "Ray",
+              email = "soumya.ray@gmail.com", role = c("aut", "ths")),
+             person("Nicholas", "Danks",
+              email = "nicholasdanks@hotmail.com", role = c("aut","cre")))
+Description: A powerful, easy to write and easy to modify syntax for
+    specifying and estimating Partial Least Squares (PLS) path models allowing for the latest estimation methods
+    for Consistent PLS as per Dijkstra & Henseler (2015, MISQ 39(2): 297-316), adjusted interactions as per 
+    Henseler & Chin (2010) <doi:10.1080/10705510903439003> and bootstrapping utilizing 
+    parallel processing as per Hair et al. (2017, ISBN:978-1483377445). 
+Imports: parallel
+License: GPL-3
+Depends: R (>= 3.1.0)
+LazyData: TRUE
+RoxygenNote: 6.0.1
+Suggests: knitr, testthat, rmarkdown
+VignetteBuilder: knitr
+NeedsCompilation: no
+Packaged: 2018-01-05 07:29:00 UTC; danksnicholas
+Author: Soumya Ray [aut, ths],
+  Nicholas Danks [aut, cre]
+Maintainer: Nicholas Danks <nicholasdanks@hotmail.com>
+Repository: CRAN
+Date/Publication: 2018-01-05 12:36:31 UTC
