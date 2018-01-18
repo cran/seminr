@@ -139,7 +139,7 @@ mobi_xm <- interactions(
 )
 
 # define structural model
-# note: interactions factor should be named by its main factors joined by a '.'
+# note: interactions cobnstruct should be named by its main constructs joined by a '.'
 mobi_sm <- relationships(
   paths(to = "Satisfaction",
         from = c("Image", "Expectation", "Value",

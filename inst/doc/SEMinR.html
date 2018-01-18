@@ -83,7 +83,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 </ul>
 <p>SEMinR follows the latest best-practices in methodological literature:</p>
 <ul>
-<li>Automatically <em>adjusts PLS estimates to ensure consistency (PLSc)</em> wherever common factors are involved</li>
+<li>Automatically <em>adjusts PLS estimates to ensure consistency (PLSc)</em> wherever common-factors are involved</li>
 <li>Ajusts for known biases in interaction terms in PLS models</li>
 <li>Continuously tested against leading PLSPM software to ensure parity of outcomes: SmartPLS (Ringle et al., 2015) and ADANCO (Henseler and Dijkstra, 2015), as well as other R packages such as semPLS (Monecke and Leisch, 2012) and matrixpls (Rönkkö, 2016)</li>
 <li><em>High performance, multi-core</em> bootstrapping function</li>
@@ -211,7 +211,7 @@ boot_estimates &lt;-<span class="st"> </span><span class="kw">bootstrap_model</s
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">single_item</span>(<span class="st">&quot;CUSCO&quot;</span>)
 <span class="co"># which is equivalent to the R character string:</span>
 <span class="st">&quot;CUSCO&quot;</span></code></pre></div>
-<p>It is important to note that a single-item constructs can be defined as either composite mode A or reflective common-factor, but they are essentially composites whose factors scores are determined.</p>
+<p>It is important to note that a single-item constructs can be defined as either composite mode A or reflective common-factor, but single-item constructs are essentially composites whose construct scores are determined.</p>
 </div>
 </div>
 <div id="interaction-terms" class="section level2">
@@ -239,7 +239,7 @@ boot_estimates &lt;-<span class="st"> </span><span class="kw">bootstrap_model</s
 <span class="co">#&gt;     intxns_list &lt;- lapply(all_intxns, create_interaction)</span>
 <span class="co">#&gt;     return(intxns_list)</span>
 <span class="co">#&gt; }</span>
-<span class="co">#&gt; &lt;environment: 0x7fd734fa14a8&gt;</span></code></pre></div>
+<span class="co">#&gt; &lt;environment: 0x7fd8b80f9498&gt;</span></code></pre></div>
 <p>Not that these functions themselves return functions that are not resolved until passed as a parameter to the <code>estimate_pls()</code> function for model estimation.</p>
 </div>
 <div id="describe-an-interaction-with-interaction_ortho-or-interaction_scaled" class="section level3">
@@ -333,7 +333,7 @@ mobi_xm &lt;-<span class="st"> </span><span class="kw">interactions</span>(
 )
 
 <span class="co"># define structural model</span>
-<span class="co"># note: interactions factor should be named by its main factors joined by a '.'</span>
+<span class="co"># note: interactions cobnstruct should be named by its main constructs joined by a '.'</span>
 mobi_sm &lt;-<span class="st"> </span><span class="kw">relationships</span>(
   <span class="kw">paths</span>(<span class="dt">to =</span> <span class="st">&quot;Satisfaction&quot;</span>,
         <span class="dt">from =</span> <span class="kw">c</span>(<span class="st">&quot;Image&quot;</span>, <span class="st">&quot;Expectation&quot;</span>, <span class="st">&quot;Value&quot;</span>,
@@ -348,9 +348,9 @@ mobi_pls &lt;-<span class="st"> </span><span class="kw">estimate_pls</span>(<spa
 <span class="co">#&gt; Generating the seminr model</span>
 <span class="co">#&gt; All 250 observations are valid.</span></code></pre></div>
 <div id="consistent-pls-plsc-for-common-factors" class="section level3">
-<h3>Consistent PLS (PLSc) for common factors</h3>
-<p>Dijkstra and Henseler (2015) offer an adjustment to generate consistent weight and path estimates of common factors estimated using PLSPM. SEMinR automatically adjusts for consistent estimates of coefficients for common factors defined using <code>reflective()</code>.</p>
-<p>Note: At this point, SEMinR does not adjust for PLSc on models with interactions involving common factors. Thus in models including common-factors and interactions, the coefficient of common-factors will be subject to bias.</p>
+<h3>Consistent PLS (PLSc) for common-factors</h3>
+<p>Dijkstra and Henseler (2015) offer an adjustment to generate consistent weight and path estimates of common factors estimated using PLSPM. SEMinR automatically adjusts for consistent estimates of coefficients for common-factors defined using <code>reflective()</code>.</p>
+<p>Note: At this point, SEMinR does not adjust for PLSc on models with interactions involving common-factors. Thus in models including common-factors and interactions, the coefficient of common-factors will be subject to bias.</p>
 </div>
 </div>
 <div id="bootstrapping-the-model-for-significance" class="section level2">
@@ -411,8 +411,10 @@ boot_mobi_pls &lt;-<span class="st"> </span><span class="kw">bootstrap_model</sp
 <li><code>model_summary$cross_loadings</code> reports all possible loadings between contructs and items</li>
 <li><code>model_summary$loadings</code> reports the estimated loadings of the measurement model</li>
 <li><code>model_summary$weights</code> reports the estimated weights of the measurement model</li>
+<li><code>model_summary$composite_scores</code> reports the construct scores of composites</li>
 </ul></li>
 </ol>
+<p>Please note that common-factor scores are indeterminable and therefore construct scores for common factors are not reported (Hair et al.,2011).</p>
 </div>
 <div id="reporting-the-bootstrapped-boot_seminr_model" class="section level3">
 <h3>Reporting the bootstrapped <code>boot_seminr_model</code></h3>
@@ -426,19 +428,19 @@ boot_mobi_pls &lt;-<span class="st"> </span><span class="kw">bootstrap_model</sp
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Structural Path t-values:</span>
 <span class="co">#&gt;                   Satisfaction</span>
-<span class="co">#&gt; Image                    8.326</span>
-<span class="co">#&gt; Expectation              2.762</span>
-<span class="co">#&gt; Value                    4.671</span>
-<span class="co">#&gt; Image.Expectation        1.086</span>
-<span class="co">#&gt; Image.Value              0.003</span>
+<span class="co">#&gt; Image                    8.506</span>
+<span class="co">#&gt; Expectation              2.753</span>
+<span class="co">#&gt; Value                    4.589</span>
+<span class="co">#&gt; Image.Expectation        1.053</span>
+<span class="co">#&gt; Image.Value              0.051</span>
 <span class="co">#&gt; </span>
 <span class="co">#&gt; Structural Path p-values:</span>
 <span class="co">#&gt;                   Satisfaction</span>
 <span class="co">#&gt; Image                    0.000</span>
 <span class="co">#&gt; Expectation              0.006</span>
 <span class="co">#&gt; Value                    0.000</span>
-<span class="co">#&gt; Image.Expectation        0.278</span>
-<span class="co">#&gt; Image.Value              0.998</span></code></pre></div>
+<span class="co">#&gt; Image.Expectation        0.292</span>
+<span class="co">#&gt; Image.Value              0.960</span></code></pre></div>
 <ol start="2" style="list-style-type: decimal">
 <li><code>boot_model_summary &lt;- summary(boot_seminr_model)</code> returns an object of class <code>summary.boot_seminr_model</code> which contains the following accessible objects:
 <ul>
@@ -456,6 +458,7 @@ boot_mobi_pls &lt;-<span class="st"> </span><span class="kw">bootstrap_model</sp
 <li>Dillon, W. R, and M. Goldstein. 1987. Multivariate Analysis: Methods, and Applications. Biometrical Journal 29 (6): 750–756.</li>
 <li>Fornell, C. and D. F. Larcker (February 1981). Evaluating structural equation models with unobservable variables and measurement error, Journal of Marketing Research, 18, pp. 39-5)</li>
 <li>Hair, J. F., Hult, G. T. M., Ringle, C. M., and Sarstedt, M. (2017). A Primer on Partial Least Squares Structural Equation Modeling (PLS-SEM), 2nd Ed., Sage: Thousand Oaks.</li>
+<li>Hair, J. F., Ringle, C. M., &amp; Sarstedt, M. (2011). PLS-SEM: Indeed a silver bullet. Journal of Marketing theory and Practice, 19(2), 139-152.</li>
 <li>Henseler, J., &amp; Fassot, G. (2006). Testing moderating effects in PLS path models. In: Esposito Vinzi, V., Chin,W.W., Henseler, J., &amp; Wang, H. (Eds.), Handbook PLS and Marketing. Berlin, Heidelberg, New York: Springer.</li>
 <li>Henseler, J., &amp; Chin, W. W. (2010), A comparison of approaches for the analysis of interaction effects between latent variables using partial least squares path modeling. Structural Equation Modeling, 17(1), 82–109. <a href="https://doi.org/10.1080/10705510903439003" class="uri">https://doi.org/10.1080/10705510903439003</a></li>
 <li>Henseler, J., Dijkstra, T. K., Sarstedt, M., Ringle, C. M., Diamantopoulos, A., Straub, D. W., … Calantone, R. J. (2014). Common Beliefs and Reality About PLS. Organizational Research Methods, 17(2), 182–209. <a href="https://doi.org/10.1177/1094428114526928" class="uri">https://doi.org/10.1177/1094428114526928</a></li>
