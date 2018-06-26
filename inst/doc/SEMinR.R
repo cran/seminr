@@ -1,3 +1,6 @@
+## ----echo=FALSE, out.width='25%'-----------------------------------------
+knitr::include_graphics('SEMinR_logo.jpg')
+
 ## ---- echo = FALSE, message = FALSE--------------------------------------
 knitr::opts_chunk$set(collapse = T, comment = "#>")
 library(seminr)
@@ -19,7 +22,7 @@ library(seminr)
 ## ---- eval=FALSE---------------------------------------------------------
 #  # Quickly create multiple paths "from" and "to" sets of constructs
 #  structure <- relationships(
-#    paths(from = c("Image", "Expectation", "Image.Expectation"),
+#    paths(from = c("Image", "Expectation", "Image*Expectation"),
 #          to = "Loyalty")
 #  )
 
@@ -139,11 +142,11 @@ mobi_xm <- interactions(
 )
 
 # define structural model
-# note: interactions cobnstruct should be named by its main constructs joined by a '.'
+# note: interactions cobnstruct should be named by its main constructs joined by a '*'
 mobi_sm <- relationships(
   paths(to = "Satisfaction",
         from = c("Image", "Expectation", "Value",
-                 "Image.Expectation", "Image.Value"))
+                 "Image*Expectation", "Image*Value"))
 )
 
 mobi_pls <- estimate_pls(data = mobi,
