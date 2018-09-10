@@ -1,4 +1,4 @@
-92a1fad5f91dfdfea86aec2a2e2ffc8d *DESCRIPTION
+451ec6ab5ba8104c857c92144ff4bc6a *DESCRIPTION
 fbc281be263dcf44788ee20ac35a8cbb *NAMESPACE
 5de4203cf94a37bf099070d557465248 *R/bootstrap.R
 ea6ea2cb6b4c642b376e48ed3ef88e2f *R/consistent.R
@@ -28,7 +28,7 @@ e51112ffda1531ed2d1eeb3c2980ddd7 *demo/seminr-ecsi.R
 50ce76a4cd2c5e8f1b94fd57a819be1f *demo/seminr-interaction.R
 f77eac4adee0262e7ae5acd605541ab6 *inst/doc/SEMinR.R
 c28dcd7d41748af6a16f3fb0e86cbcef *inst/doc/SEMinR.Rmd
-3131df87453414a1049188946c564a89 *inst/doc/SEMinR.html
+4efbb6aad3372c5af409f9e631a426d2 *inst/doc/SEMinR.html
 2ccd3217fa718032b7fb010345daffa8 *man/PLSc.Rd
 a0255b19c8d84becc79a27af901fce2a *man/SRMR.Rd
 71e4668f37fd10f913d020d1d8ac583a *man/bootstrap_model.Rd
@@ -100,7 +100,7 @@ ca316494864d3658e6061bb79d8c0286 *tests/testthat/test-consistent.R
 d53eec4d0348d8ea249ffee1116f9220 *tests/testthat/test-metric.R
 b8991c5c5430d5e002ae4d3cbbd31305 *tests/testthat/test-output.r
 d3538320ead5a984ccaa2a3bc0a580e2 *tests/testthat/test-structure.r
-8aceef0ddfc37f41ce902adcea26ca6c *tests/testthat/test-summary.R
+ccf7e92b7b1dc0111bd7b0989874b508 *tests/testthat/test-summary.R
 618dba95d84f998de88a37331ae1eda0 *tests/testthat/test_validity.R
 c28dcd7d41748af6a16f3fb0e86cbcef *vignettes/SEMinR.Rmd
 ea4aaeb9f3ad5abb8b254db1ff338b1e *vignettes/SEMinR_logo.jpg
