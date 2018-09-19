@@ -291,7 +291,7 @@ c(&quot;IMAG1&quot;, &quot;IMAG2&quot;, &quot;IMAG3&quot;, &quot;IMAG4&quot;, &q
 #&gt;     intxns_list &lt;- lapply(all_intxns, create_interaction)
 #&gt;     return(intxns_list)
 #&gt; }
-#&gt; &lt;environment: 0x7fa49a2558b0&gt;</code></pre>
+#&gt; &lt;environment: 0x7fcddc365ea8&gt;</code></pre>
 <p>Not that these functions themselves return functions that are not resolved until passed as a parameter to the <code>estimate_pls()</code> function for model estimation.</p>
 </div>
 <div id="describe-an-interaction-with-interaction_ortho-or-interaction_scaled" class="section level3">
@@ -423,7 +423,7 @@ boot_mobi_pls &lt;- bootstrap_model(seminr_model = mobi_pls,
                                  nboot = 1000,
                                  cores = 2)
 #&gt; Bootstrapping model using seminr...
-#&gt; SEMinR Model succesfully bootstrapped</code></pre>
+#&gt; SEMinR Model successfully bootstrapped</code></pre>
 <p>Notably, bootstrapping can also be meaningfully applied to models containing interaction terms and readjusts the interaction term (Henseler and Chin 2010) for every sub-sample. This leads to slightly increased processing times, but provides accurate estimations.</p>
 </div>
 <div id="reporting-the-pls-sem-model" class="section level2">
@@ -483,19 +483,19 @@ boot_mobi_pls &lt;- bootstrap_model(seminr_model = mobi_pls,
 #&gt; 
 #&gt; Structural Path t-values:
 #&gt;                   Satisfaction
-#&gt; Image                    8.244
-#&gt; Expectation              2.766
-#&gt; Value                    4.479
-#&gt; Image*Expectation        0.996
-#&gt; Image*Value              0.061
+#&gt; Image                    8.510
+#&gt; Expectation              2.686
+#&gt; Value                    4.625
+#&gt; Image*Expectation        1.011
+#&gt; Image*Value              0.053
 #&gt; 
 #&gt; Structural Path p-values:
 #&gt;                   Satisfaction
 #&gt; Image                    0.000
-#&gt; Expectation              0.006
+#&gt; Expectation              0.007
 #&gt; Value                    0.000
-#&gt; Image*Expectation        0.320
-#&gt; Image*Value              0.952</code></pre>
+#&gt; Image*Expectation        0.312
+#&gt; Image*Value              0.958</code></pre>
 <ol start="2" style="list-style-type: decimal">
 <li><code>boot_model_summary &lt;- summary(boot_seminr_model)</code> returns an object of class <code>summary.boot_seminr_model</code> which contains the following accessible objects:
 <ul>
