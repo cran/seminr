@@ -1,11 +1,11 @@
-331bbeeca42cf1d88c54ceba9594c567 *DESCRIPTION
+9b6485a0c315cca508fcd8eb8295fb8e *DESCRIPTION
 fbc281be263dcf44788ee20ac35a8cbb *NAMESPACE
 af8669557d1003cc7c7560c204c833a5 *R/bootstrap.R
-ea6ea2cb6b4c642b376e48ed3ef88e2f *R/consistent.R
+5e51517957cbb78fc11ab7c3ef2ea4fd *R/consistent.R
 1649c500bbdcbdf842eba81c5c94c8a9 *R/constructs.R
 46a75132151cf6d9c8448b5cab62338b *R/data.R
-d73380de920cd5015807ed237f1dd309 *R/evaluation.R
-b8181e6c3b787f0e3f0685182e614058 *R/interactions.R
+c13198873bafd1f96551669054df67b2 *R/evaluation.R
+d4afa64d10995266776c7dc8abdf39d7 *R/interactions.R
 7361a55c5bd89374f53c3b01b6d2ac0f *R/library.R
 4ed008aa91f8e3729b75af5279e2542b *R/metrics.R
 5cba7954205b18600101427e529b2bc1 *R/model.R
@@ -27,8 +27,8 @@ ac97caba4257cc10469137971656dfa4 *demo/seminr-contained.R
 e51112ffda1531ed2d1eeb3c2980ddd7 *demo/seminr-ecsi.R
 50ce76a4cd2c5e8f1b94fd57a819be1f *demo/seminr-interaction.R
 f77eac4adee0262e7ae5acd605541ab6 *inst/doc/SEMinR.R
-c28dcd7d41748af6a16f3fb0e86cbcef *inst/doc/SEMinR.Rmd
-f715d41be6636ed353c97c851a343d35 *inst/doc/SEMinR.html
+3a0f12608a5a75fb0d0c11f9899e8720 *inst/doc/SEMinR.Rmd
+442cbdab596c76361fc2f7967b811bd2 *inst/doc/SEMinR.html
 2ccd3217fa718032b7fb010345daffa8 *man/PLSc.Rd
 a0255b19c8d84becc79a27af901fce2a *man/SRMR.Rd
 9212aad94108ad534fe6c67cc8ffbd42 *man/bootstrap_model.Rd
@@ -80,6 +80,8 @@ fb063bf054e8bc1fb31d6dd17ecf3ebc *tests/fixtures/factorial_scores.csv
 9b0c1280ca600bb3b03ed5c1081d291a *tests/fixtures/loadings2.csv
 0514ba43618947cd39056b18d641278c *tests/fixtures/path_coef1.csv
 1526fb5776b8ad46dd98845cfab9b448 *tests/fixtures/path_coef2.csv
+7724aa3df01418765adf894f935c1ffe *tests/fixtures/plsc-interaction-paths.csv
+c2be2a107e733bcbcc628f7e2b4cc101 *tests/fixtures/plsc-interaction-reliability.csv
 45c19af1a5e8c57e8e947efd184822bd *tests/fixtures/pvalues.csv
 2d9ecb47c539af2776544bcbc032947c *tests/fixtures/reliability.csv
 5318a935500b02a415796ec042babd2e *tests/fixtures/rho1.csv
@@ -94,6 +96,7 @@ a0acf3e490a9bc349fef5ac68825fd48 *tests/fixtures/vifs/flat_vif_antecedents2.csv
 449f0a9299260f595a3b694491189b7b *tests/fixtures/weights2.csv
 3c9d402b7c09b9880ec53a899e26d444 *tests/testthat.R
 9102112cc40c080e405cceffcdcea658 *tests/testthat/test-bootstrap.R
+cde9ac7ec4bb9f7441aab2e5952b2ad9 *tests/testthat/test-consistent-interactions.R
 da3220cc5c96a3f9029ed9beef8bebcb *tests/testthat/test-consistent.R
 b1007f83a99a1d998e14d5f57c2942b4 *tests/testthat/test-inner_weighting.R
 712403644e5a5926354b96323b510f17 *tests/testthat/test-measure.r
@@ -102,5 +105,5 @@ a51a2f00fb0621c884bf50680420d942 *tests/testthat/test-metric.R
 d3538320ead5a984ccaa2a3bc0a580e2 *tests/testthat/test-structure.r
 0420d7f98aedc8fa7834722f58332033 *tests/testthat/test-summary.R
 5c2b7e37e51c961d1004df00e8ffa567 *tests/testthat/test_validity.R
-c28dcd7d41748af6a16f3fb0e86cbcef *vignettes/SEMinR.Rmd
+3a0f12608a5a75fb0d0c11f9899e8720 *vignettes/SEMinR.Rmd
 ea4aaeb9f3ad5abb8b254db1ff338b1e *vignettes/SEMinR_logo.jpg
