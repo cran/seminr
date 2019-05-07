@@ -67,7 +67,7 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
       cat("Bootstrapping model using seminr...\n")
 
       # prepare parameters for cluster export (model parameters)
-      interactions = seminr_model$mobi_xm
+      interactions = seminr_model$interactions
       d <- seminr_model$rawdata
       measurement_model <- seminr_model$raw_measurement_model
       structural_model <- seminr_model$smMatrix
@@ -93,8 +93,6 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
 
         # Function to get PLS estimate results
         getEstimateResults <- function(i, d = d) {
-          # Set RNGversion
-          suppressWarnings(RNGversion("3.5.0"))
           set.seed(seed+i)
           boot_model <- seminr::estimate_pls(data = d[getRandomIndex(d),],
                                measurement_model,
