@@ -10,25 +10,23 @@ library(seminr)
 #  measurements <- constructs(
 #    composite("Image",       multi_items("IMAG", 1:5), weights = mode_B),
 #    composite("Expectation", multi_items("CUEX", 1:3), weights = mode_A),
-#    reflective("Loyalty",    multi_items("CUSL", 1:3))
-#  )
-
-## ---- eval=FALSE---------------------------------------------------------
-#  # Easily create orthogonalized or scaled interactions between constructs
-#  intxns <- interactions(
-#    interaction_ortho("Image", "Expectation")
+#    composite("Loyalty",    multi_items("CUSL", 1:3)),
+#    composite("Quality",      multi_items("PERQ", 1:7)),
+#    composite("Complaints",   single_item("CUSCO")),
+#    interaction_term("Image", "Expectation", method =  orthogonal, weights = mode_A),
+#    higher_composite("Value", "Complaints", method = two_stage, weights = mode_B)
 #  )
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  # Quickly create multiple paths "from" and "to" sets of constructs
 #  structure <- relationships(
-#    paths(from = c("Image", "Expectation", "Image*Expectation"),
+#    paths(from = c("Image", "Expectation", "Image*Expectation", "Value"),
 #          to = "Loyalty")
 #  )
 
 ## ---- eval=FALSE---------------------------------------------------------
 #  # Dynamically compose SEM models from individual parts
-#  pls_model <- estimate_pls(data = mobi, measurements, intxns, structure)
+#  pls_model <- estimate_pls(data = mobi, measurements, structure)
 #  summary(pls_model)
 #  
 #  # Use multi-core parallel processing to speed up bootstraps
@@ -53,6 +51,8 @@ mobi_mm <- constructs(
   composite("Value",         multi_items("PERV", 1:2), weights = correlation_weights),
   reflective("Satisfaction", multi_items("CUSA", 1:3)),
   reflective("Complaints",   single_item("CUSCO")),
+  higher_composite("HOC", c("Value", "Satisfaction"), orthogonal, mode_A),
+  interaction_term(iv = "Image", moderator = "Expectation", method =  orthogonal, weights = mode_A),
   reflective("Loyalty",      multi_items("CUSL", 1:3))
 )
 
@@ -79,21 +79,10 @@ mobi_mm <- constructs(
 #  # which is equivalent to the R character string:
 #  "CUSCO"
 
-## ------------------------------------------------------------------------
-mobi_xm <- interactions(
-  interaction_ortho("Image", "Expectation"),
-  interaction_ortho("Image", "Value")
-)
-
-## ------------------------------------------------------------------------
-mobi_xm
-
 ## ---- eval = FALSE-------------------------------------------------------
-#  # Orgthogonalized interaction between "Image" x "Expectation"
-#  interaction_ortho("Image", "Expectation")
-#  
-#  # Scaled (mean-centered, standardized) interaction between "Image" x "Value"
-#  interaction_scaled("Image", "Value")
+#  interaction_term(iv = "Image", moderator = "Expectation", method =  orthogonal, weights = mode_A)
+#  interaction_term(iv = "Image", moderator = "Expectation", method =  product_indicator, weights = mode_A)
+#  interaction_term(iv = "Image", moderator = "Expectation", method =  two_stage, weights = mode_A)
 
 ## ------------------------------------------------------------------------
 mobi_sm <- relationships(
@@ -132,13 +121,9 @@ mobi_mm <- constructs(
   composite("Image",        multi_items("IMAG", 1:5)),
   composite("Expectation",  multi_items("CUEX", 1:3)),
   composite("Value",        multi_items("PERV", 1:2)),
-  composite("Satisfaction", multi_items("CUSA", 1:3))
-)
-
-# specify interactions among constructs
-mobi_xm <- interactions(
-  interaction_ortho("Image", "Expectation"),
-  interaction_ortho("Image", "Value")
+  composite("Satisfaction", multi_items("CUSA", 1:3)),
+  interaction_term(iv = "Image", moderator = "Expectation", method =  orthogonal, weights = mode_A),
+  interaction_term(iv = "Image", moderator = "Value", method =  orthogonal, weights = mode_A)
 )
 
 # define structural model
@@ -151,7 +136,6 @@ mobi_sm <- relationships(
 
 mobi_pls <- estimate_pls(data = mobi,
                          measurement_model = mobi_mm,
-                         interactions = mobi_xm,
                          structural_model = mobi_sm,
                          inner_weights = path_weighting)
 
@@ -206,4 +190,11 @@ confidence_interval(boot_seminr_model = boot_seminr_model,
                    from = "Image",
                    to = "Satisfaction",
                    alpha = 0.10)
+
+## ------------------------------------------------------------------------
+model_summary <- summary(mobi_pls)
+model_summary$descriptives$statistics$items
+model_summary$descriptives$correlations$items
+model_summary$descriptives$statistics$constructs
+model_summary$descriptives$correlations$constructs
 
