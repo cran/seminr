@@ -1,4 +1,4 @@
-396b6724d6c2e78dea76c77ef49ec2b9 *DESCRIPTION
+d7742b41b4cd4594e1749ddafd05ea32 *DESCRIPTION
 1a986b7486271d1f36f1d40f8f3341d7 *NAMESPACE
 46a75132151cf6d9c8448b5cab62338b *R/data.R
 40c9dac264095b5f1fad7caf96442f65 *R/estimate_bootstrap.R
@@ -13,7 +13,7 @@ a062526ef9cb2ba3a0dd237af48b5624 *R/evaluate_reliability.R
 5c64f99c7df96f1559c5595af67554cf *R/evaluate_warnings.R
 d3629a5d4d0a5eb1bf764fcfe3798bec *R/feature_consistent.R
 2fdf372eb5c6dc42d9205bc1eddc8901 *R/feature_higher_order.R
-3700cf7cb6389e507013af845b40929d *R/library.R
+76ce4b02ff9eff0e36e3a25d38651b84 *R/library.R
 d966015ae1c64681061001bf31d84b72 *R/plot_results.R
 a3ddd8454b80cde16b132b85392d293b *R/report_descriptives.R
 8a263d283e3f97dcda6e1402e5486131 *R/report_measurement_model.R
@@ -23,7 +23,7 @@ a822a693ee14e9b830da4b3b9044d958 *R/specify_constructs.R
 7814856381e6b62f9f824db4eaf648c3 *R/specify_interactions.R
 dd4f4bd8eac4bbd5c8b8c4abd94b0a20 *R/specify_relationships.R
 530e381ea103fe1706a538558a3df648 *README.md
-7f3d65999669e376c40de562995fe4d7 *build/vignette.rds
+47afa870d6c65cf24aa20a2011134527 *build/vignette.rds
 e8bb0cae85cd91ad2ebe985ef71f3d72 *data/mobi.rda
 ff0e0ce44988ee5d9e03179059070bbc *demo/00Index
 47f8c253f89225727bdc4f8426411851 *demo/seminr-alternative-models.R
@@ -34,7 +34,7 @@ ff0e0ce44988ee5d9e03179059070bbc *demo/00Index
 6090b2bc04d73833c7f68b2eb8301b1c *demo/seminr-interaction.R
 9464004efabf8890c13845cf37377ef4 *inst/doc/SEMinR.R
 aa57c9c34866219cfdc8144c75d9bbe9 *inst/doc/SEMinR.Rmd
-7c1f1cbe0684d40301879ef0a1e320cf *inst/doc/SEMinR.html
+b727f3d51e595d43c4700f14b9ac20e1 *inst/doc/SEMinR.html
 be7b929400076d8d4de044fe60a0019f *man/PLSc.Rd
 f3cf0eb5bb83cd9560bd1bba69cbea73 *man/bootstrap_model.Rd
 0c0fb31a64fdbe5afdeb020f0286099f *man/composite.Rd

@@ -2,11 +2,11 @@ Package: seminr
 Type: Package
 Title: Domain-Specific Language for Building PLS Structural Equation
         Models
-Version: 1.0.0
-Date: 2019-09-27
+Version: 1.0.1
+Date: 2019-12-11
 Authors@R: c(person("Soumya", "Ray",
               email = "soumya.ray@gmail.com", role = c("aut", "ths")),
-             person("Nicholas", "Danks",
+             person("Nicholas Patrick", "Danks",
               email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
              person("Juan Manuel Velasquez", "Estrada", role = "aut"))
 Description: A powerful, easy to write and easy to modify syntax for
@@ -23,10 +23,10 @@ Suggests: knitr, testthat, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2019-09-27 09:56:30 UTC; danksnicholas
+Packaged: 2019-12-11 10:46:59 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
-  Nicholas Danks [aut, cre],
+  Nicholas Patrick Danks [aut, cre],
   Juan Manuel Velasquez Estrada [aut]
-Maintainer: Nicholas Danks <nicholasdanks@hotmail.com>
+Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2019-09-27 10:20:02 UTC
+Date/Publication: 2019-12-12 12:00:02 UTC
