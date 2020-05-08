@@ -1,11 +1,11 @@
-d7742b41b4cd4594e1749ddafd05ea32 *DESCRIPTION
+87e85574441b65ec39204ab0d11db130 *DESCRIPTION
 1a986b7486271d1f36f1d40f8f3341d7 *NAMESPACE
 46a75132151cf6d9c8448b5cab62338b *R/data.R
 40c9dac264095b5f1fad7caf96442f65 *R/estimate_bootstrap.R
 4be25781d95813845cc097b451cbfc46 *R/estimate_metrics.R
 96da3ccaad0fa2a0d97f8603a2e3ef30 *R/estimate_model.R
 fc74e6f1501279ddd5178605ef722a53 *R/estimate_simplePLS.R
-302c932e8c068e71dda93cabd94f8a74 *R/evaluate_effects.R
+29f8f3a7096bd4ea0285a61ed4ef822f *R/evaluate_effects.R
 520f1e51596b545df04f78ea4855672c *R/evaluate_measurement_model.R
 a65c6cbf4eeb690966625eb87e300093 *R/evaluate_model.R
 a062526ef9cb2ba3a0dd237af48b5624 *R/evaluate_reliability.R
@@ -34,7 +34,7 @@ ff0e0ce44988ee5d9e03179059070bbc *demo/00Index
 6090b2bc04d73833c7f68b2eb8301b1c *demo/seminr-interaction.R
 9464004efabf8890c13845cf37377ef4 *inst/doc/SEMinR.R
 aa57c9c34866219cfdc8144c75d9bbe9 *inst/doc/SEMinR.Rmd
-b727f3d51e595d43c4700f14b9ac20e1 *inst/doc/SEMinR.html
+623273636bf8f53bc9010b8536210cba *inst/doc/SEMinR.html
 be7b929400076d8d4de044fe60a0019f *man/PLSc.Rd
 f3cf0eb5bb83cd9560bd1bba69cbea73 *man/bootstrap_model.Rd
 0c0fb31a64fdbe5afdeb020f0286099f *man/composite.Rd
@@ -44,7 +44,7 @@ c0c96ee253f4c99160257870c9b8d4ef *man/estimate_pls.Rd
 7c5f31a5e118df4ed5c7b59c7f622bda *man/fSquared.Rd
 bc45f1a8dcd9d52814bf2f89be6b9288 *man/higher_composite.Rd
 0a3f4454bba2dfbe9ed92787fabc08de *man/interaction_term.Rd
-6d14bd0471434df04f9db33dc6a94100 *man/mobi.Rd
+345e5ed824051f9f9f056048664c5723 *man/mobi.Rd
 0f4ade5c85102694d3efe5e98d52b860 *man/mode_A.Rd
 92bf77c76eb32d80a99afeacfd817371 *man/mode_B.Rd
 e2a6318671b3ef889bb01ad0789fed48 *man/multi_items.Rd
@@ -89,6 +89,7 @@ cf939605a643ea95bf20ed3f274c11d2 *tests/fixtures/V_3_5_X/factorial_coefficients.
 fb063bf054e8bc1fb31d6dd17ecf3ebc *tests/fixtures/V_3_5_X/factorial_scores.csv
 4fc2a95f8a0b88f44157639227473fc4 *tests/fixtures/V_3_5_X/factorial_weights.csv
 3b8a494d986bdf88ba7476d154346caf *tests/fixtures/V_3_5_X/fsquared1.csv
+85686fc637a04bb7edbe7b1cc3da9463 *tests/fixtures/V_3_5_X/fsquared2.csv
 d6bbd4ba1abaa6ad643aa3c0eb34cc3b *tests/fixtures/V_3_5_X/hoc-_2siweights.csv
 cf6f8c60c24db6bf52d80162930890c3 *tests/fixtures/V_3_5_X/hoc-loadings.csv
 0bf8a82a35f4f15d48e049ae10da2ec8 *tests/fixtures/V_3_5_X/hoc-paths.csv
@@ -147,6 +148,7 @@ cf939605a643ea95bf20ed3f274c11d2 *tests/fixtures/V_3_6_0/factorial_coefficients.
 fb063bf054e8bc1fb31d6dd17ecf3ebc *tests/fixtures/V_3_6_0/factorial_scores.csv
 4fc2a95f8a0b88f44157639227473fc4 *tests/fixtures/V_3_6_0/factorial_weights.csv
 3b8a494d986bdf88ba7476d154346caf *tests/fixtures/V_3_6_0/fsquared1.csv
+85686fc637a04bb7edbe7b1cc3da9463 *tests/fixtures/V_3_6_0/fsquared2.csv
 d6bbd4ba1abaa6ad643aa3c0eb34cc3b *tests/fixtures/V_3_6_0/hoc-_2siweights.csv
 cf6f8c60c24db6bf52d80162930890c3 *tests/fixtures/V_3_6_0/hoc-loadings.csv
 0bf8a82a35f4f15d48e049ae10da2ec8 *tests/fixtures/V_3_6_0/hoc-paths.csv
@@ -184,7 +186,7 @@ b52226fedbbe91f44242aaa3217f3526 *tests/testthat/test-bootstrap.R
 9c9f5d93f6e6f50cc864d02b851a7220 *tests/testthat/test-hoc.R
 0d1f06809a287382e4ff1bd478964418 *tests/testthat/test-inner_weighting.R
 9c6b0f95de0d86df3a3c8eb3b6e9a7d3 *tests/testthat/test-measure.r
-7b895160c11aa69dfc65e1b5f2d216c9 *tests/testthat/test-metric.R
+6de36a2aecb912e97e522f25c5dfc2f2 *tests/testthat/test-metric.R
 7a59a30d8c889639fe9ca0caf473461a *tests/testthat/test-output.r
 bf20f874eb6265b3e0050c9dbc67f069 *tests/testthat/test-structure.r
 2ce46eaa6c3b75576ede472ae06022e3 *tests/testthat/test-summary.R

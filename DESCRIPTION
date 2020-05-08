@@ -2,8 +2,8 @@ Package: seminr
 Type: Package
 Title: Domain-Specific Language for Building PLS Structural Equation
         Models
-Version: 1.0.1
-Date: 2019-12-11
+Version: 1.0.2
+Date: 2020-05-08
 Authors@R: c(person("Soumya", "Ray",
               email = "soumya.ray@gmail.com", role = c("aut", "ths")),
              person("Nicholas Patrick", "Danks",
@@ -18,15 +18,15 @@ Imports: parallel
 License: GPL-3
 Depends: R (>= 3.1.0)
 LazyData: TRUE
-RoxygenNote: 6.1.1
+RoxygenNote: 7.1.0
 Suggests: knitr, testthat, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2019-12-11 10:46:59 UTC; danksnicholas
+Packaged: 2020-05-08 09:30:15 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
   Juan Manuel Velasquez Estrada [aut]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2019-12-12 12:00:02 UTC
+Date/Publication: 2020-05-08 11:00:02 UTC
