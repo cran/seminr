@@ -1,20 +1,19 @@
 Package: seminr
 Type: Package
-Title: Domain-Specific Language for Building PLS Structural Equation
-        Models
-Version: 1.0.2
-Date: 2020-05-08
-Authors@R: c(person("Soumya", "Ray",
-              email = "soumya.ray@gmail.com", role = c("aut", "ths")),
-             person("Nicholas Patrick", "Danks",
-              email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
-             person("Juan Manuel Velasquez", "Estrada", role = "aut"))
-Description: A powerful, easy to write and easy to modify syntax for
-    specifying and estimating Partial Least Squares (PLS) path models allowing for the latest estimation methods
-    for Consistent PLS as per Dijkstra & Henseler (2015, MISQ 39(2): 297-316), adjusted interactions as per 
-    Henseler & Chin (2010) <doi:10.1080/10705510903439003> and bootstrapping utilizing 
-    parallel processing as per Hair et al. (2017, ISBN:978-1483377445). 
-Imports: parallel
+Title: Domain-Specific Language for Building and Estimating Structural
+        Equation Models
+Version: 1.1.0
+Date: 2020-07-23
+Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
+             person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
+             person("Juan Manuel Velasquez", "Estrada", role = "aut"),
+             person("James", "Uanhoro", role = "ctr", email = "James.uanhoro@gmail.com"),
+             person("Arturo Heynar Cano", "Bejar", role = "ctr", email = "arturocano997@gmail.com"))
+Description: A powerful, easy to syntax for specifying and estimating complex 
+    Structural Equation Models. Models can be estimated using Partial 
+    Least Squares Path Modeling or Covariance-Based Structural Equation 
+    Modeling or covariance based Confirmatory Factor Analysis. 
+Imports: parallel, lavaan, MASS
 License: GPL-3
 Depends: R (>= 3.1.0)
 LazyData: TRUE
@@ -23,10 +22,12 @@ Suggests: knitr, testthat, rmarkdown
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-05-08 09:30:15 UTC; danksnicholas
+Packaged: 2020-07-23 15:39:13 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
-  Juan Manuel Velasquez Estrada [aut]
+  Juan Manuel Velasquez Estrada [aut],
+  James Uanhoro [ctr],
+  Arturo Heynar Cano Bejar [ctr]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2020-05-08 11:00:02 UTC
+Date/Publication: 2020-07-23 16:00:02 UTC
