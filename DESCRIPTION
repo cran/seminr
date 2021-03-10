@@ -2,32 +2,44 @@ Package: seminr
 Type: Package
 Title: Domain-Specific Language for Building and Estimating Structural
         Equation Models
-Version: 1.1.0
-Date: 2020-07-23
+Version: 2.0.0
+Date: 2021-03-09
 Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
              person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
-             person("Juan Manuel Velasquez", "Estrada", role = "aut"),
-             person("James", "Uanhoro", role = "ctr", email = "James.uanhoro@gmail.com"),
-             person("Arturo Heynar Cano", "Bejar", role = "ctr", email = "arturocano997@gmail.com"))
+             person("André", "Calero Valdez", role = "aut", email = "andrecalerovaldez@gmail.com"),
+             person("Juan Manuel Velasquez", "Estrada", role = "ctb"),
+             person("James", "Uanhoro", role = "ctb", email = "James.uanhoro@gmail.com"),
+             person("Johannes", "Nakayama", role = "ctb", email = "johannes.nakayama@rwth-aachen.de"),
+             person("Lilian", "Koyan", role = "ctb", email = "lilian.kojan@rwth-aachen.de"),
+             person("Laura", "Burbach", role = "ctb", email = "laura.burbach@rwth-aachen.de"),
+             person("Arturo Heynar", "Cano Bejar", role = "ctb", email = "arturocano997@gmail.com"),
+             person("Susanne", "Adler", role = "ctb", email = "susanne.adler@ovgu.de")
+            )
 Description: A powerful, easy to syntax for specifying and estimating complex 
     Structural Equation Models. Models can be estimated using Partial 
     Least Squares Path Modeling or Covariance-Based Structural Equation 
     Modeling or covariance based Confirmatory Factor Analysis. 
-Imports: parallel, lavaan, MASS
+Imports: parallel, lavaan, MASS, glue
 License: GPL-3
-Depends: R (>= 3.1.0)
+Depends: R (>= 3.5.0)
 LazyData: TRUE
-RoxygenNote: 7.1.0
-Suggests: knitr, testthat, rmarkdown
+RoxygenNote: 7.1.1
+Suggests: knitr, testthat, rmarkdown, DiagrammeR (>= 1.0.6),
+        DiagrammeRsvg (>= 0.1), rsvg (>= 2.1), webp, semPlot, vdiffr
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2020-07-23 15:39:13 UTC; danksnicholas
+Packaged: 2021-03-10 09:11:12 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
-  Juan Manuel Velasquez Estrada [aut],
-  James Uanhoro [ctr],
-  Arturo Heynar Cano Bejar [ctr]
+  André Calero Valdez [aut],
+  Juan Manuel Velasquez Estrada [ctb],
+  James Uanhoro [ctb],
+  Johannes Nakayama [ctb],
+  Lilian Koyan [ctb],
+  Laura Burbach [ctb],
+  Arturo Heynar Cano Bejar [ctb],
+  Susanne Adler [ctb]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2020-07-23 16:00:02 UTC
+Date/Publication: 2021-03-10 11:40:06 UTC
