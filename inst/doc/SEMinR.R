@@ -281,9 +281,9 @@ pls_model <- estimate_pls(
 )
 boot_estimates <- bootstrap_model(pls_model, nboot = 100, cores = 1)
 
-## ----include = FALSE----------------------------------------------------------
-pl <- plot(boot_estimates, title = "Bootstrapped Model")
-save_plot("myfigure.png", width = 2400, plot = pl)
+## ----include = FALSE, eval = FALSE--------------------------------------------
+#  pl <- plot(boot_estimates, title = "Bootstrapped Model")
+#  save_plot("myfigure.png", width = 2400, plot = pl)
 
 ## ----echo=FALSE, out.width='75%'----------------------------------------------
 knitr::include_graphics('myfigure.png')

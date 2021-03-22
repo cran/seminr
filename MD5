@@ -1,4 +1,4 @@
-fad02e40f12348aab253461191f62028 *DESCRIPTION
+a23cf845b979dfdf55d2281327c5777e *DESCRIPTION
 e2344283f9f53052ba6e2824c8c31922 *NAMESPACE
 80b7924006fd424a8c74be178eb90e66 *R/clean_data.R
 1c4719bedee622f09beba779194dd9b4 *R/compute_metrics.R
@@ -73,9 +73,9 @@ d8a68b0f6fc7be61a383a762e3a5b060 *demo/seminr-primer-chap5.R
 8a308e508cfc8af56982d64c8f709dcb *demo/seminr-primer-chap7.R
 38dca0186d3ac0bbe4b49281bb829982 *demo/seminr-primer-chap8.R
 82d0330356979ed0ce290c0cefb711de *demo/seminr-style-contained.R
-1d54f08f57a32b5f14c3ec4c51ea0e69 *inst/doc/SEMinR.R
-2fbb08b0cad6233ce1f4603776d2fb8e *inst/doc/SEMinR.Rmd
-5321bda9144521ebde6eb45a50169b01 *inst/doc/SEMinR.html
+3a65b8c70db90b8cac1a609867964c58 *inst/doc/SEMinR.R
+34f0a0ec8932a7b4418f5a8f6b5a25f1 *inst/doc/SEMinR.Rmd
+ed2eb02f4b3a75e020510eb767e9c705 *inst/doc/SEMinR.html
 be7b929400076d8d4de044fe60a0019f *man/PLSc.Rd
 bb497e6281876afb020481629fbcf0a4 *man/as.reflective.Rd
 39a506c4a0cf5fb3e5e7794655c03b5d *man/as.reflective.construct.Rd
@@ -238,6 +238,7 @@ eb7676c91ba20fcacf8f4ec29efc1b57 *tests/fixtures/V_3_6_0/item_stats.csv
 e65fac57ddcd41eff941ea55dbcf2746 *tests/fixtures/V_3_6_0/rho2.csv
 478363988f67ae9b4aa17b2ac70e0478 *tests/fixtures/V_3_6_0/rsquared1.csv
 3c60f9b9f897dabfb5001a6b50c89c14 *tests/fixtures/V_3_6_0/rsquaredplsc.csv
+eee3b3d291b13f5c669604f8e5205b70 *tests/fixtures/V_3_6_0/test-plsc-fsquared-data.csv
 8605b84f7ae834eb67e8bb5115ad16c2 *tests/fixtures/V_3_6_0/vifs/flat_item_vifs1.csv
 4f57ac62de36af48297aa8a2989b1380 *tests/fixtures/V_3_6_0/vifs/flat_vif_antecedents1.csv
 a0acf3e490a9bc349fef5ac68825fd48 *tests/fixtures/V_3_6_0/vifs/flat_vif_antecedents2.csv
@@ -280,7 +281,7 @@ ed961f9e4d65f72a3c38b703ece56b66 *tests/testthat/test-plot-regressiontest.R
 eda7cd231bed888b1ed470b2fd03e10d *tests/testthat/test-plot-themes.R
 9f01293f3070539329c0d6659d008031 *tests/testthat/test-plot-utils.R
 7a59a30d8c889639fe9ca0caf473461a *tests/testthat/test-pls.r
-d6250fb45faa76190097948343d472f6 *tests/testthat/test-plsc-fsquared.R
+ab6e1a4e0e1e7caf4268587887010d5c *tests/testthat/test-plsc-fsquared.R
 afc61588916cac21aa625d2a9f510700 *tests/testthat/test-specified-cbsem.R
 77a055f2d6b4a6a397ed983ab714e79c *tests/testthat/test-specified-pls.R
 bf20f874eb6265b3e0050c9dbc67f069 *tests/testthat/test-structure.r
@@ -288,5 +289,6 @@ c1033b1e2c569cfe53a4371d6425e843 *tests/testthat/test-summary-cbsem.R
 be94c85769c230deacc30e85238a14cc *tests/testthat/test-summary.R
 1294d77b306904f07b3c66462f24f987 *tests/testthat/test-validity.R
 70c90c0feac1d4569b7ce8dff54457ce *tests/testthat/test_clean_data.R
-2fbb08b0cad6233ce1f4603776d2fb8e *vignettes/SEMinR.Rmd
+34f0a0ec8932a7b4418f5a8f6b5a25f1 *vignettes/SEMinR.Rmd
 ea4aaeb9f3ad5abb8b254db1ff338b1e *vignettes/SEMinR_logo.jpg
+f573f18936d3d9b76f38c7e15bf9e01c *vignettes/myfigure.png
