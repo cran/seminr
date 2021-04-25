@@ -2,7 +2,7 @@
 knitr::include_graphics('SEMinR_logo.jpg')
 
 ## ---- echo = FALSE, message = FALSE-------------------------------------------
-knitr::opts_chunk$set(collapse = T, comment = "#>")
+knitr::opts_chunk$set(collapse = TRUE, comment = "#>")
 library(seminr)
 
 ## ---- eval=FALSE--------------------------------------------------------------

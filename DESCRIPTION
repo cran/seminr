@@ -1,9 +1,8 @@
 Package: seminr
 Type: Package
-Title: Domain-Specific Language for Building and Estimating Structural
-        Equation Models
-Version: 2.0.1
-Date: 2021-03-21
+Title: Building and Estimating Structural Equation Models
+Version: 2.0.2
+Date: 2021-04-01
 Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
              person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
              person("André", "Calero Valdez", role = "aut", email = "andrecalerovaldez@gmail.com"),
@@ -25,11 +24,12 @@ Depends: R (>= 3.5.0)
 LazyData: TRUE
 RoxygenNote: 7.1.1
 Suggests: knitr, testthat, rmarkdown, DiagrammeR (>= 1.0.6),
-        DiagrammeRsvg (>= 0.1), rsvg (>= 2.1), webp, semPlot, vdiffr
+        DiagrammeRsvg (>= 0.1), webp, vdiffr
+Enhances: rsvg (>= 2.1), semPlot
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2021-03-22 15:59:01 UTC; danksnicholas
+Packaged: 2021-04-24 09:50:59 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
   André Calero Valdez [aut],
@@ -42,4 +42,4 @@ Author: Soumya Ray [aut, ths],
   Susanne Adler [ctb]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2021-03-22 20:40:02 UTC
+Date/Publication: 2021-04-25 07:40:02 UTC
