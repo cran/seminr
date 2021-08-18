@@ -1,8 +1,8 @@
 Package: seminr
 Type: Package
 Title: Building and Estimating Structural Equation Models
-Version: 2.1.0
-Date: 2021-04-29
+Version: 2.2.0
+Date: 2021-08-18
 Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
              person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
              person("André", "Calero Valdez", role = "aut", email = "andrecalerovaldez@gmail.com"),
@@ -17,19 +17,18 @@ Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("a
 Description: A powerful, easy to syntax for specifying and estimating complex 
     Structural Equation Models. Models can be estimated using Partial 
     Least Squares Path Modeling or Covariance-Based Structural Equation 
-    Modeling or covariance based Confirmatory Factor Analysis. 
-Imports: parallel, lavaan, glue
+    Modeling or covariance based Confirmatory Factor Analysis. Methods described in Ray, Danks, and Valdez (2021).
+Imports: parallel, lavaan, glue, knitr, testthat, rmarkdown, DiagrammeR
+        (>= 1.0.6), DiagrammeRsvg (>= 0.1), webp
 License: GPL-3
 Depends: R (>= 3.5.0)
 LazyData: TRUE
 RoxygenNote: 7.1.1
-Suggests: knitr, testthat, rmarkdown, DiagrammeR (>= 1.0.6),
-        DiagrammeRsvg (>= 0.1), webp
 Enhances: rsvg (>= 2.1), semPlot, vdiffr
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2021-04-30 12:17:29 UTC; danksnicholas
+Packaged: 2021-08-18 10:02:23 UTC; danksnicholas
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
   André Calero Valdez [aut],
@@ -42,4 +41,4 @@ Author: Soumya Ray [aut, ths],
   Susanne Adler [ctb]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2021-05-13 15:20:03 UTC
+Date/Publication: 2021-08-18 14:30:02 UTC
