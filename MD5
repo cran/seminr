@@ -1,11 +1,11 @@
-5cb378ca3e868ce853a3b7b16109f352 *DESCRIPTION
+b4f0ef88f23afc6e6f42dc6a676d5510 *DESCRIPTION
 d42a5f28a5d03c7a5c7453fd220046ff *NAMESPACE
 8c5d0087b6b64395232ddbddc586393d *R/clean_data.R
 1c4719bedee622f09beba779194dd9b4 *R/compute_metrics.R
 22dda071f7dd490e9f669f11a28bd613 *R/compute_ten_berge.R
 63eab91071f3dc6ac34a67a33b72edf9 *R/data.R
 f5398b15a37da70aee411dabddf4839e *R/documentation_utils.R
-3f130360c2f9eb9ed8ab4e526fdc9cbe *R/estimate_bootstrap.R
+9388a6627edf14332b3ce1ce322abfb9 *R/estimate_bootstrap.R
 5e47f9d80acedcc80f11904f654fbb08 *R/estimate_cbsem.R
 80891c030974634feb515e7447f162f7 *R/estimate_factor_scores.R
 c5de7ae7880c1139ce1f868cbcabd0eb *R/estimate_pls.R
@@ -30,7 +30,7 @@ d73d21cfd2c6af60cfc7c724b3ca890a *R/library_data_structures.R
 fca5c27d75b9527939b8be1292ae8e02 *R/plot_dot.R
 5730b8d4a5a7cdd2515466ab9ad8534c *R/plot_htmt.R
 2a61a4975b86621b52697101e71567b6 *R/plot_lastplot.R
-8c61d17b5c0be3921050c195cdbd36bd *R/plot_results.R
+ddb4d56f200bb32b4df1ef10e6b51899 *R/plot_results.R
 9c1a99dfb19781896839691253ba5976 *R/plot_test_utils.R
 d19007c93a10aa72b013525510ef7050 *R/plot_utils.R
 aa97fc04a603eccca890efbcd0b61c05 *R/report_cbsem.R
@@ -77,7 +77,7 @@ e51a50733fed9ac89bbfb1697dd7c269 *demo/seminr-primer-chap8.R
 82d0330356979ed0ce290c0cefb711de *demo/seminr-style-contained.R
 7d9a1afba0e21b0410fa0d094319a76e *inst/doc/SEMinR.R
 045b27e969bf073f70b41d9e845730c1 *inst/doc/SEMinR.Rmd
-8e1e044e6a29ed0ffe15ccc2c9b0047e *inst/doc/SEMinR.html
+3870ea0ee472e5f10b4d27bcc078de16 *inst/doc/SEMinR.html
 5fdf2f44359eaab56751e09e20397640 *man/PLSc.Rd
 472d1a970141047a0b08927a932adc57 *man/as.reflective.Rd
 3b099cf853cde1b07c580ed02f1a5b68 *man/as.reflective.construct.Rd
@@ -237,7 +237,7 @@ eb7676c91ba20fcacf8f4ec29efc1b57 *tests/fixtures/V_3_6_0/item_stats.csv
 3916ef99c9796d8573b89a65769d1039 *tests/fixtures/V_3_6_0/loadings1.csv
 9b0c1280ca600bb3b03ed5c1081d291a *tests/fixtures/V_3_6_0/loadings2.csv
 62dcdd3bd04ea149ae782f355b73cdd9 *tests/fixtures/V_3_6_0/missing_cases_item_descriptives.csv
-a81b59ca8452b24764cf58eef014e436 *tests/fixtures/V_3_6_0/missing_cases_paths.csv
+23435db465d49a1c58a7ee7a9665a9a6 *tests/fixtures/V_3_6_0/missing_cases_paths.csv
 0514ba43618947cd39056b18d641278c *tests/fixtures/V_3_6_0/path_coef1.csv
 1526fb5776b8ad46dd98845cfab9b448 *tests/fixtures/V_3_6_0/path_coef2.csv
 7724aa3df01418765adf894f935c1ffe *tests/fixtures/V_3_6_0/plsc-interaction-paths.csv

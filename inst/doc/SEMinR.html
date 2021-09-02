@@ -760,7 +760,7 @@ boot_mobi_pls &lt;- bootstrap_model(seminr_model = mobi_pls,
 </ol>
 <pre class="r"><code>summary(mobi_pls)
 #&gt; 
-#&gt; Results from  package seminr (2.2.0)
+#&gt; Results from  package seminr (2.2.1)
 #&gt; 
 #&gt; Path Coefficients:
 #&gt;                   Satisfaction
@@ -877,9 +877,9 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
                              to = &quot;Complaints&quot;,
                              alpha = 0.05)
 #&gt;  Original Est. Bootstrap Mean   Bootstrap SD        T Stat.        2.5% CI 
-#&gt;    0.016670348    0.014502603    0.009658587    1.725961452   -0.001272980 
+#&gt;    0.016670348    0.014919623    0.014132896    1.179542294   -0.008050495 
 #&gt;       97.5% CI 
-#&gt;    0.030568528
+#&gt;    0.038368707
 
 # Calculate the 10% confidence interval for direct path Image -&gt; Satisfaction
 specific_effect_significance(boot_seminr_model = boot_seminr_model,
@@ -887,9 +887,9 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
                              to = &quot;Satisfaction&quot;,
                              alpha = 0.10)
 #&gt;  Original Est. Bootstrap Mean   Bootstrap SD        T Stat.          5% CI 
-#&gt;     0.17873950     0.19142030     0.05218334     3.42522170     0.11528576 
+#&gt;     0.17873950     0.18734230     0.05096144     3.50734771     0.11009002 
 #&gt;         95% CI 
-#&gt;     0.27185625</code></pre>
+#&gt;     0.28750390</code></pre>
 </div>
 <div id="reporting-data-descriptive-statistics-and-construct-descriptive-statistics" class="section level2">
 <h2>Reporting data descriptive statistics and construct descriptive statistics</h2>
