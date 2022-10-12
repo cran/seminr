@@ -1,4 +1,4 @@
-9b493d74d210de38404086756709853f *DESCRIPTION
+74f8f0e93e6a5c738b46de6d8d0a1ca6 *DESCRIPTION
 185829939846921da8ac2309b3cc2a4b *NAMESPACE
 e324a383916c1621d963ccc5610be2ac *R/boot_utils.R
 8c5d0087b6b64395232ddbddc586393d *R/clean_data.R
@@ -7,7 +7,7 @@ eb194a7edec283493d0fa6960278d922 *R/compute_metrics.R
 22dda071f7dd490e9f669f11a28bd613 *R/compute_ten_berge.R
 63eab91071f3dc6ac34a67a33b72edf9 *R/data.R
 f5398b15a37da70aee411dabddf4839e *R/documentation_utils.R
-577b248d72090b621356a895aade76d5 *R/estimate_bootstrap.R
+9eb553d2c161bfc961a54217394ccfac *R/estimate_bootstrap.R
 c80cd3be2c042619a72261f471ff3be3 *R/estimate_cbsem.R
 b240a5a591c0562ad44dc2662a61cbea *R/estimate_factor_scores.R
 ef8cb74f1db2175fa59200038d1f5cf4 *R/estimate_pls.R
@@ -20,7 +20,7 @@ ed963d6ea420fc98aca6f46ad1cb1c60 *R/evaluate_reliability.R
 08e27957985035385c970957cc0c0d38 *R/evaluate_validity.R
 7cfdb253e476feb662214e5ab49e5ba2 *R/evaluate_warnings.R
 fdac4aa2073f9952e83c354999c4ace0 *R/feature_consistent.R
-33960373ae1709e3661e3668c031e06e *R/feature_higher_order.R
+430cd7beda656a8e68234737f19154ff *R/feature_higher_order.R
 8736edc681905a6ff8d4aa1e28f3a05b *R/feature_plspredict.R
 c821fbf0a04ad1d0f02874c163acf16f *R/import_lavaan_syntax.R
 7851304010a38659c642d587db1f11db *R/inspect_mmMatrix.R
@@ -28,9 +28,9 @@ a7bdf8147e4f14e4bbe7570d7619dddb *R/inspect_smMatrix.R
 d49ef40c857a627a82fb0d9a5d22c718 *R/lavaan_syntax.R
 5d40dab5ded2322d52271451d3d513d2 *R/library-errors-warnings.R
 fc56b5a9d14800cd8001d6cf32460dba *R/library-traverse.R
-7a283cccce04e678a14993f55b94a256 *R/library.R
+a170cfaa87d5ba6549e764cc6e9cc414 *R/library.R
 d73d21cfd2c6af60cfc7c724b3ca890a *R/library_data_structures.R
-573a3990afa563cde86a0bf7c9b6724a *R/plot_dot.R
+227115b4c7812ecce2df5e1d92f27071 *R/plot_dot.R
 5730b8d4a5a7cdd2515466ab9ad8534c *R/plot_htmt.R
 2a61a4975b86621b52697101e71567b6 *R/plot_lastplot.R
 ddb4d56f200bb32b4df1ef10e6b51899 *R/plot_results.R
@@ -80,8 +80,8 @@ c9348e926a3d26f0a3026690946e9726 *demo/seminr-pls-mga.R
 e51a50733fed9ac89bbfb1697dd7c269 *demo/seminr-primer-chap8.R
 82d0330356979ed0ce290c0cefb711de *demo/seminr-style-contained.R
 7d9a1afba0e21b0410fa0d094319a76e *inst/doc/SEMinR.R
-8643cb753213b80c7b83a54a6cb7248b *inst/doc/SEMinR.Rmd
-7a8a237d7677793d1c2d8c3b6d80a7f7 *inst/doc/SEMinR.html
+045b27e969bf073f70b41d9e845730c1 *inst/doc/SEMinR.Rmd
+875b4e259ef8a235d1fae73d66c4de6d *inst/doc/SEMinR.html
 5fdf2f44359eaab56751e09e20397640 *man/PLSc.Rd
 472d1a970141047a0b08927a932adc57 *man/as.reflective.Rd
 3b099cf853cde1b07c580ed02f1a5b68 *man/as.reflective.construct.Rd
@@ -316,6 +316,6 @@ bf20f874eb6265b3e0050c9dbc67f069 *tests/testthat/test-structure.r
 be94c85769c230deacc30e85238a14cc *tests/testthat/test-summary.R
 1294d77b306904f07b3c66462f24f987 *tests/testthat/test-validity.R
 70c90c0feac1d4569b7ce8dff54457ce *tests/testthat/test_clean_data.R
-8643cb753213b80c7b83a54a6cb7248b *vignettes/SEMinR.Rmd
+045b27e969bf073f70b41d9e845730c1 *vignettes/SEMinR.Rmd
 ea4aaeb9f3ad5abb8b254db1ff338b1e *vignettes/SEMinR_logo.jpg
 f573f18936d3d9b76f38c7e15bf9e01c *vignettes/myfigure.png

@@ -632,7 +632,7 @@ knitr::include_graphics('myfigure.png')
 * Henseler, J., & Fassot, G. (2006). Testing moderating effects in PLS path models. In: Esposito Vinzi, V., Chin,W.W., Henseler, J., & Wang, H. (Eds.), Handbook PLS and Marketing. Berlin, Heidelberg, New York: Springer.
 * Henseler, J., & Chin, W. W. (2010), A comparison of approaches for the analysis of interaction effects between latent variables 
 using partial least squares path modeling. Structural Equation Modeling, 17(1), 82–109. https://doi.org/10.1080/10705510903439003
-* Henseler, J., Dijkstra, T. K., Sarstedt, M., Ringle, C. M., Diamantopoulos, A., Straub, D. W., … Calantone, R. J. (2014). Common Beliefs and Reality About PLS. Organizational Research Methods, 17(2), 182–209. 
+* Henseler, J., Dijkstra, T. K., Sarstedt, M., Ringle, C. M., Diamantopoulos, A., Straub, D. W., … Calantone, R. J. (2014). Common Beliefs and Reality About PLS. Organizational Research Methods, 17(2), 182–209. https://doi.org/10.1177/1094428114526928
 * Henseler, J. and Dijkstra, T.K. (2015), “ADANCO 2.0”, Composite Modeling, Kleve, available at: www.compositemodeling.com (accessed December 14, 2015).
 * Jöreskog, K. G. (1973). A general method for estimating a linear structural equation system In: Goldberger AS, Duncan OD, editors. Structural Equation Models in the Social Sciences. New York: Seminar Press.
 * Lodder, P., Denollet, J., Emons, W. H., Nefs, G., Pouwer, F., Speight, J., & Wicherts, J. M. (2019). Modeling interactions between latent variables in research on Type D personality: A Monte Carlo simulation and clinical study of depression and anxiety. Multivariate behavioral research, 54(5), 637-665.
