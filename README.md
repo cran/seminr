@@ -400,7 +400,7 @@ on SEM related issues.
     Python](https://github.com/GoogleCloudPlatform/plspm-python): a
     well-maintained PLS modeling pakage for Python; it is tested against
     SEMinR and borrows some syntactic ideas from SEMinR.
--   [cSEM](https://github.com/M-E-Rademaker/cSEM): a well-maintained and
+-   [cSEM](https://github.com/FloSchuberth/cSEM): a well-maintained and
     comprehensive composite analysis project implementing PLS and GSCA
     for R, using Lavaan style syntax
 

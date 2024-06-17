@@ -1,8 +1,8 @@
 Package: seminr
 Type: Package
 Title: Building and Estimating Structural Equation Models
-Version: 2.3.2
-Date: 2022-10-12
+Version: 2.3.3
+Date: 2024-06-13
 Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
              person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
              person("André", "Calero Valdez", role = "aut", email = "andrecalerovaldez@gmail.com"),
@@ -23,12 +23,14 @@ Imports: parallel, lavaan, glue, knitr, testthat, rmarkdown, DiagrammeR
 License: GPL-3
 Depends: R (>= 3.5.0)
 LazyData: TRUE
-RoxygenNote: 7.2.0
+URL: https://github.com/sem-in-r/seminr
+BugReports: https://github.com/sem-in-r/seminr/issues
+RoxygenNote: 7.3.1
 Enhances: rsvg (>= 2.1), semPlot, vdiffr
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2022-10-12 18:46:10 UTC; nicholasdanks
+Packaged: 2024-06-17 09:59:20 UTC; nicholasdanks
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
   André Calero Valdez [aut],
@@ -41,4 +43,4 @@ Author: Soumya Ray [aut, ths],
   Susanne Adler [ctb]
 Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
 Repository: CRAN
-Date/Publication: 2022-10-12 19:40:02 UTC
+Date/Publication: 2024-06-17 10:30:06 UTC
