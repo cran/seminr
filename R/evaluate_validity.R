@@ -45,9 +45,9 @@ antecedent_vifs <- function(smMatrix, cor_matrix) {
 # https://doi.org/10.1007/s11747-014-0403-8
 HTMT <- function(seminr_model) {
   if (is.null(seminr_model$hoc)) {
-    constructs <- intersect(unique(seminr_model$smMatrix),unique(seminr_model$mmMatrix[,1 ]))
+    constructs <- intersect(construct_names(seminr_model$smMatrix),unique(seminr_model$mmMatrix[,1 ]))
   } else {
-    constructs <- intersect(unique(c(seminr_model$smMatrix, seminr_model$first_stage_model$smMatrix)),unique(seminr_model$mmMatrix[,1 ]))
+    constructs <- intersect(unique(c(seminr_model$smMatrix[,1],seminr_model$smMatrix[,2], seminr_model$first_stage_model$smMatrix[,1],seminr_model$first_stage_model$smMatrix[,2])),unique(seminr_model$mmMatrix[,1 ]))
   }
 
   HTMT <- matrix(, nrow=length(constructs), ncol=length(constructs),
