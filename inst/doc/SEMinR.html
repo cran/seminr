@@ -404,6 +404,13 @@ paths</a></li>
 data descriptive statistics and construct descriptive
 statistics</a></li>
 </ul></li>
+<li><a href="#prediction-and-cross-validation-plspredict" id="toc-prediction-and-cross-validation-plspredict">Prediction and
+cross-validation (PLSpredict)</a>
+<ul>
+<li><a href="#single-holdout-prediction" id="toc-single-holdout-prediction">Single holdout prediction</a></li>
+<li><a href="#cross-validated-prediction-with-predict_pls" id="toc-cross-validated-prediction-with-predict_pls">Cross-validated
+prediction with <code>predict_pls()</code></a></li>
+</ul></li>
 <li><a href="#plotting-models" id="toc-plotting-models">Plotting
 models</a></li>
 <li><a href="#references" id="toc-references">References</a></li>
@@ -963,7 +970,7 @@ and <span class="math inline">\(rho_{A}\)</span> (Dijkstra and Henseler
 </ol>
 <pre class="r"><code>summary(mobi_pls)
 #&gt; 
-#&gt; Results from  package seminr (2.4.2)
+#&gt; Results from  package seminr (2.5.0)
 #&gt; 
 #&gt; Path Coefficients:
 #&gt;                   Satisfaction
@@ -1136,11 +1143,11 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
                              to = &quot;Complaints&quot;,
                              alpha = 0.05)
 #&gt;                                              Original Est. Bootstrap Mean
-#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints         0.017          0.018
+#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints         0.017          0.016
 #&gt;                                              Bootstrap SD T Stat. 2.5% CI
-#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints        0.013   1.249  -0.005
+#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints        0.013   1.281  -0.005
 #&gt;                                              97.5% CI Bootstrap P Val
-#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints    0.039           0.160
+#&gt; Image-&gt;Expectation-&gt;Satisfaction-&gt;Complaints    0.044           0.160
 
 # Calculate the 10% confidence interval for direct path Image -&gt; Satisfaction
 specific_effect_significance(boot_seminr_model = boot_seminr_model,
@@ -1148,9 +1155,9 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
                              to = &quot;Satisfaction&quot;,
                              alpha = 0.10)
 #&gt;                       Original Est. Bootstrap Mean Bootstrap SD T Stat. 5% CI
-#&gt; Image-&gt;-&gt;Satisfaction         0.179          0.187        0.048   3.689 0.109
+#&gt; Image-&gt;-&gt;Satisfaction         0.179          0.182        0.049   3.659 0.094
 #&gt;                       95% CI Bootstrap P Val
-#&gt; Image-&gt;-&gt;Satisfaction  0.266           0.000</code></pre>
+#&gt; Image-&gt;-&gt;Satisfaction  0.258           0.000</code></pre>
 </div>
 <div id="reporting-data-descriptive-statistics-and-construct-descriptive-statistics" class="section level2">
 <h2>Reporting data descriptive statistics and construct descriptive
@@ -1168,6 +1175,77 @@ model_summary$descriptives$statistics$items
 model_summary$descriptives$correlations$items
 model_summary$descriptives$statistics$constructs
 model_summary$descriptives$correlations$constructs</code></pre>
+</div>
+</div>
+<div id="prediction-and-cross-validation-plspredict" class="section level1">
+<h1>Prediction and cross-validation (PLSpredict)</h1>
+<p>SEMinR supports out-of-sample prediction for PLS models, including
+models with interaction terms. This implements the PLSpredict procedure
+(Shmueli et al., 2016, 2019).</p>
+<div id="single-holdout-prediction" class="section level2">
+<h2>Single holdout prediction</h2>
+<p>Use <code>predict()</code> on an estimated model with held-out test
+data:</p>
+<pre class="r"><code># Estimate a model with an interaction
+mobi_mm &lt;- constructs(
+  composite(&quot;Image&quot;,        multi_items(&quot;IMAG&quot;, 1:5)),
+  composite(&quot;Expectation&quot;,  multi_items(&quot;CUEX&quot;, 1:3)),
+  composite(&quot;Satisfaction&quot;, multi_items(&quot;CUSA&quot;, 1:3)),
+  interaction_term(iv = &quot;Image&quot;, moderator = &quot;Expectation&quot;,
+                   method = product_indicator)
+)
+mobi_sm &lt;- relationships(
+  paths(to = &quot;Satisfaction&quot;,
+        from = c(&quot;Image&quot;, &quot;Expectation&quot;, &quot;Image*Expectation&quot;))
+)
+model &lt;- estimate_pls(mobi, mobi_mm, mobi_sm)
+
+# Generate predictions on held-out data
+predictions &lt;- predict(model, testData = mobi[1:50, ])
+predictions$predicted_items      # predicted indicator scores
+predictions$item_residuals       # actual - predicted</code></pre>
+<p>All three interaction methods are supported for prediction:
+<code>two_stage</code>, <code>product_indicator</code>, and
+<code>orthogonal</code>. The prediction function automatically detects
+which method was used during estimation.</p>
+</div>
+<div id="cross-validated-prediction-with-predict_pls" class="section level2">
+<h2>Cross-validated prediction with <code>predict_pls()</code></h2>
+<p>For k-fold or leave-one-out cross-validation (LOOCV), use
+<code>predict_pls()</code>:</p>
+<pre class="r"><code># 10-fold cross-validation
+cv_results &lt;- predict_pls(model, technique = predict_DA, noFolds = 10)
+summary(cv_results)
+
+# LOOCV (automatically parallelized)
+loocv_results &lt;- predict_pls(model, technique = predict_DA, noFolds = NULL)
+
+# Parallel k-fold (useful for high k or interaction models)
+cv_parallel &lt;- predict_pls(model, technique = predict_DA, noFolds = 50, cores = 4)</code></pre>
+<p>The <code>technique</code> parameter controls how endogenous
+construct scores are predicted:</p>
+<ul>
+<li><code>predict_DA</code> (Direct Antecedents): predicts each
+construct from its direct antecedent constructs only</li>
+<li><code>predict_EA</code> (Earliest Antecedents): propagates
+predictions through the full structural model from the exogenous
+constructs</li>
+</ul>
+<div id="parallelization" class="section level3">
+<h3>Parallelization</h3>
+<p>Cross-validation runs sequentially by default. To enable parallel
+execution, specify the <code>cores</code> parameter:</p>
+<pre class="r"><code># Parallel LOOCV across 4 cores
+loocv_parallel &lt;- predict_pls(model, noFolds = NULL, cores = 4)
+
+# Parallel 50-fold CV
+cv_parallel &lt;- predict_pls(model, noFolds = 50, cores = 4)</code></pre>
+<p>This is particularly useful for LOOCV or high-k folds where each fold
+requires re-estimation.</p>
+<p><em>Note:</em> Parallel workers load the <em>installed</em> version
+of seminr. If using development code, run
+<code>devtools::install()</code> before parallel prediction.</p>
+</div>
 </div>
 </div>
 <div id="plotting-models" class="section level1">
@@ -1263,6 +1341,13 @@ squares estimation (version 0.7.0). <a href="https://CRAN.R-project.org/package=
 <li>Sarstedt, M., Hair, J. F., Ringle, C. M., Thiele, K. O., &amp;
 Gudergan, S. P. (2016). Estimation issues with PLS and CBSEM: Where the
 bias lies! Journal of Business Research, 69(10), 3998–4010. <a href="https://doi.org/10.1016/j.jbusres.2016.06.007" class="uri">https://doi.org/10.1016/j.jbusres.2016.06.007</a></li>
+<li>Shmueli, G., Ray, S., Velasquez Estrada, J. M., &amp; Chatla, S. B.
+(2016). The elephant in the room: Predictive performance of PLS models.
+Journal of Business Research, 69(10), 4552–4564. <a href="https://doi.org/10.1016/j.jbusres.2016.03.049" class="uri">https://doi.org/10.1016/j.jbusres.2016.03.049</a></li>
+<li>Shmueli, G., Sarstedt, M., Hair, J. F., Cheah, J. H., Ting, H.,
+Vaithilingam, S., &amp; Ringle, C. M. (2019). Predictive model
+assessment in PLS-SEM: guidelines for using PLSpredict. European Journal
+of Marketing, 53(11), 2322–2347. <a href="doi:10.1108/EJM-02-2019-0189" class="uri">doi:10.1108/EJM-02-2019-0189</a></li>
 <li>Ten Berge, J. M., Krijnen, W. P., Wansbeek, T., &amp; Shapiro, A.
 (1999). Some new results on correlation-preserving factor scores
 prediction methods. Linear Algebra and its Applications, 289(1-3),

@@ -260,6 +260,44 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
 # model_summary$descriptives$statistics$constructs
 # model_summary$descriptives$correlations$constructs
 
+## ----eval=FALSE---------------------------------------------------------------
+# # Estimate a model with an interaction
+# mobi_mm <- constructs(
+#   composite("Image",        multi_items("IMAG", 1:5)),
+#   composite("Expectation",  multi_items("CUEX", 1:3)),
+#   composite("Satisfaction", multi_items("CUSA", 1:3)),
+#   interaction_term(iv = "Image", moderator = "Expectation",
+#                    method = product_indicator)
+# )
+# mobi_sm <- relationships(
+#   paths(to = "Satisfaction",
+#         from = c("Image", "Expectation", "Image*Expectation"))
+# )
+# model <- estimate_pls(mobi, mobi_mm, mobi_sm)
+# 
+# # Generate predictions on held-out data
+# predictions <- predict(model, testData = mobi[1:50, ])
+# predictions$predicted_items      # predicted indicator scores
+# predictions$item_residuals       # actual - predicted
+
+## ----eval=FALSE---------------------------------------------------------------
+# # 10-fold cross-validation
+# cv_results <- predict_pls(model, technique = predict_DA, noFolds = 10)
+# summary(cv_results)
+# 
+# # LOOCV (automatically parallelized)
+# loocv_results <- predict_pls(model, technique = predict_DA, noFolds = NULL)
+# 
+# # Parallel k-fold (useful for high k or interaction models)
+# cv_parallel <- predict_pls(model, technique = predict_DA, noFolds = 50, cores = 4)
+
+## ----eval=FALSE---------------------------------------------------------------
+# # Parallel LOOCV across 4 cores
+# loocv_parallel <- predict_pls(model, noFolds = NULL, cores = 4)
+# 
+# # Parallel 50-fold CV
+# cv_parallel <- predict_pls(model, noFolds = 50, cores = 4)
+
 ## -----------------------------------------------------------------------------
 # generate a small model for creating the plot
 mobi_mm <- constructs(
