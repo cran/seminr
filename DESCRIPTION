@@ -1,10 +1,10 @@
 Package: seminr
 Type: Package
 Title: Building and Estimating Structural Equation Models
-Version: 2.5.0
-Date: 2026-05-21
+Version: 2.6.0
+Date: 2026-10-13
 Authors@R: c(person("Soumya", "Ray", email = "soumya.ray@gmail.com", role = c("aut", "ths")),
-             person("Nicholas Patrick", "Danks", email = "nicholasdanks@hotmail.com", role = c("aut","cre")),
+             person("Nicholas Patrick", "Danks", email = "seminrgroup@gmail.com", role = c("aut","cre")),
              person("André", "Calero Valdez", role = "aut", email = "andrecalerovaldez@gmail.com"),
              person("Juan Manuel Velasquez", "Estrada", role = "ctb"),
              person("James", "Uanhoro", role = "ctb", email = "James.uanhoro@gmail.com"),
@@ -31,7 +31,7 @@ Enhances: rsvg (>= 2.1), semPlot, vdiffr, seminrExtras
 VignetteBuilder: knitr
 Encoding: UTF-8
 NeedsCompilation: no
-Packaged: 2026-05-25 08:01:12 UTC; nicholasdanks
+Packaged: 2026-10-13 14:41:58 UTC; nicholasdanks
 Author: Soumya Ray [aut, ths],
   Nicholas Patrick Danks [aut, cre],
   André Calero Valdez [aut],
@@ -42,6 +42,6 @@ Author: Soumya Ray [aut, ths],
   Laura Burbach [ctb],
   Arturo Heynar Cano Bejar [ctb],
   Susanne Adler [ctb]
-Maintainer: Nicholas Patrick Danks <nicholasdanks@hotmail.com>
+Maintainer: Nicholas Patrick Danks <seminrgroup@gmail.com>
 Repository: CRAN
-Date/Publication: 2026-05-25 08:40:02 UTC
+Date/Publication: 2026-10-13 23:20:02 UTC

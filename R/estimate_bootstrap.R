@@ -11,8 +11,14 @@
 #'        value is 500. If 0 then no bootstrapping is performed.
 #'
 #' @param cores A parameter specifying the maximum number of cores to use in the parallelization.
+#'        The default, \code{NULL}, uses all available cores (\code{parallel::detectCores()}),
+#'        or at most two during R CMD check with CRAN's core limit set. Results do not depend
+#'        on the number of cores.
 #'
 #' @param seed A parameter to specify the seed for reproducibility of results. Default is NULL.
+#'        Resample \code{i} uses \code{set.seed(seed + i)}, so two seeds that differ by less
+#'        than \code{nboot} share most of their resamples; to check how much results vary
+#'        between runs, use seeds that differ by more than \code{nboot}.
 #'
 #' @param ... A list of parameters passed on to the estimation method.
 #'
@@ -67,6 +73,9 @@
 #' summary(boot_seminr_model)
 #' @export
 bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL, ...) {
+  # cores = 1 runs replicates in this process instead of a one-worker cluster
+  in_process <- !is.null(cores) && cores == 1
+  cl <- NULL
   out <- tryCatch(
     {
       # Bootstrapping for significance as per Hair, J. F., Hult, G. T. M., Ringle, C. M., and Sarstedt, M. (2017). A Primer on
@@ -85,7 +94,9 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
 
 
       # Initialize the cluster with seminr loaded on workers (issue #318)
-      cl <- setup_parallel_cluster(cores)
+      if (!in_process) {
+        cl <- setup_parallel_cluster(cores)
+      }
 
       # Function to generate random samples with replacement
       getRandomIndex <- function(d) {return(sample.int(nrow(d), replace = TRUE))}
@@ -94,18 +105,20 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
       if (is.null(seed)) { seed <- sample.int(100000, size = 1) }
 
       # Export variables and functions to cluster
-      parallel::clusterExport(cl=cl, varlist=c("measurement_model",
-                                               "structural_model",
-                                               "inner_weights",
-                                               "getRandomIndex",
-                                               "d",
-                                               "HTMT",
-                                               "seed",
-                                               "total_effects",
-                                               "missing_value",
-                                               "maxIt",
-                                               "stopCriterion",
-                                               "missing"), envir=environment())
+      if (!in_process) {
+        parallel::clusterExport(cl=cl, varlist=c("measurement_model",
+                                                 "structural_model",
+                                                 "inner_weights",
+                                                 "getRandomIndex",
+                                                 "d",
+                                                 "HTMT",
+                                                 "seed",
+                                                 "total_effects",
+                                                 "missing_value",
+                                                 "maxIt",
+                                                 "stopCriterion",
+                                                 "missing"), envir=environment())
+      }
 
       # Compute actual dimensions for error-recovery NA vector
       HTMT_matrix <- HTMT(seminr_model)
@@ -135,27 +148,48 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
                              c(boot_total))))
           },
           error = function(cond) {
+            # message the text only: message(cond) re-signals the condition,
+            # which would abort the whole bootstrap when running in-process
             message("Bootstrapping encountered an ERROR: ")
-            message(cond)
+            message(conditionMessage(cond))
             return(rep(NA, boot_vec_len))
           },
           warning = function(cond) {
             message("Bootstrapping encountered an ERROR: ")
-            message(cond)
+            message(conditionMessage(cond))
             return(rep(NA, boot_vec_len))
           }
         )
       }
 
       # Bootstrap the estimates
-      utils::capture.output(bootmatrix <- parallel::parSapply(cl, 1:nboot, getEstimateResults, d, boot_vec_len))
+      if (in_process) {
+        # Replicates use set.seed(seed + i), so save and restore the caller's
+        # RNG state to match the cluster path (which never touches it here)
+        had_seed <- exists(".Random.seed", envir = .GlobalEnv, inherits = FALSE)
+        if (had_seed) prior_seed <- get(".Random.seed", envir = .GlobalEnv)
+        # suppressMessages matches cluster behavior: worker output is discarded
+        utils::capture.output(bootmatrix <- suppressMessages(
+          sapply(1:nboot, getEstimateResults, d, boot_vec_len)))
+        if (had_seed) {
+          assign(".Random.seed", prior_seed, envir = .GlobalEnv)
+        } else {
+          rm(".Random.seed", envir = .GlobalEnv)
+        }
+      } else {
+        utils::capture.output(bootmatrix <- parallel::parSapply(cl, 1:nboot, getEstimateResults, d, boot_vec_len))
+      }
 
-      # Clean the NAs and report the NAs
-      bootmatrix <- bootmatrix[,!is.na(bootmatrix[1,])]
+      # Drop resamples that failed or gave an inadmissible PLSc solution (their
+      # estimation errored or warned, so they are NA); reported at the end
+      nboot_requested <- nboot
+      bootmatrix <- bootmatrix[, !is.na(bootmatrix[1, ]), drop = FALSE]
       fails <- nboot - ncol(bootmatrix)
       nboot <- nboot - fails
-      if (fails > 0) {
-        message(paste("Bootstrapping encountered a WARNING: ", fails, "bootstrap iterations failed to converge (possibly due to PLSc). \nThese failed iterations are excluded from the reported bootstrap statistics."))
+      if (nboot < 2) {
+        stop("Only ", nboot, " of ", nboot_requested, " bootstrap resamples could be estimated; ",
+             "the others failed or gave an inadmissible PLSc solution, so there is too little ",
+             "to compute bootstrap statistics from.", call. = FALSE)
       }
 
 
@@ -323,9 +357,17 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
       seminr_model$HTMT_descriptives <- HTMT_descriptives
       seminr_model$total_paths_descriptives <- total_paths_descriptives
       seminr_model$boots <- nboot
+      seminr_model$boots_requested <- nboot_requested
+      seminr_model$boots_dropped <- fails
       seminr_model$seed <- seed
       class(seminr_model) <- c("boot_seminr_model", "seminr_model")
-      message("SEMinR Model successfully bootstrapped")
+      if (fails > 0) {
+        message("SEMinR Model bootstrapped: ", nboot, " of ", nboot_requested, " resamples used. ",
+                fails, " were dropped because they failed to estimate or gave an inadmissible ",
+                "PLSc solution, and are excluded from the bootstrap statistics.")
+      } else {
+        message("SEMinR Model successfully bootstrapped")
+      }
       return(seminr_model)
     },
     error = function(cond) {
@@ -339,7 +381,7 @@ bootstrap_model <- function(seminr_model, nboot = 500, cores = NULL, seed = NULL
       seminr_model <- NULL
     },
     finally = {
-      parallel::stopCluster(cl)
+      if (!is.null(cl)) parallel::stopCluster(cl)
       return(seminr_model)
     }
   )

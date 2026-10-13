@@ -292,6 +292,10 @@ specific_effect_significance(boot_seminr_model = boot_seminr_model,
 # cv_parallel <- predict_pls(model, technique = predict_DA, noFolds = 50, cores = 4)
 
 ## ----eval=FALSE---------------------------------------------------------------
+# cbsem_model <- estimate_cbsem(mobi[1:200, ], as.reflective(measurements), structure)
+# cbsem_predictions <- predict(cbsem_model, testData = mobi[201:250, ], technique = predict_DA)
+
+## ----eval=FALSE---------------------------------------------------------------
 # # Parallel LOOCV across 4 cores
 # loocv_parallel <- predict_pls(model, noFolds = NULL, cores = 4)
 # 
